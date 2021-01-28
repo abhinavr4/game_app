@@ -1,0 +1,49 @@
+<% include ../partials/header.ejs %>
+
+<div class="container">
+	<div class="jumbotron">
+		<h1>Your selected Flight</h1>
+		<table class="table">
+			<tbody>
+			    <tr>
+			    	<td>Flight Origin</td>
+			    	<td><%=flight.origin%></td>		    	
+			    </tr>
+			    <tr>
+			    	<td>Flight Duration</td>
+			    	<td><%=flight.duration%></td>		    	
+			    </tr>
+			    <tr>
+			    	<td>Flight Destination</td>
+			    	<td><%=flight.destination%></td>		    	
+			   	</tr>
+			   	 <tr>
+			    	<td>Departure Time</td>
+			    	<td><%=flight.depTime%></td>		    	
+			    </tr>
+			    <tr>
+			    	<td>Arrival Time</td>
+			    	<td><%=flight.arrTime%></td>		    	
+			    </tr>
+			    <tr>
+				    <td>Price</td>
+			    	<td><%=flight.price%></td>		    	
+			    </tr>
+			</tbody>
+		</table>
+		<div class="pull-right">
+			<% if(currentUser && currentUser.username === "admin"){ %>
+					<a class="btn btn-warning btn-xs" href="/flights/<%= flight._id %>/edit">Edit</a>
+					<form class="same-line" action="/flights/<%= flight._id %>?_method=DELETE" method="POST">
+		       			 <button class="btn btn-danger btn-xs">Delete</button>
+		    		</form> 
+		    <% } else {%>
+		    	<form action="/tickets" method="POST">
+		    		<button class="btn btn-success btn-xs">Book</button>
+		    	</form>
+		    <% } %>
+		</div>
+	</div>
+</div>
+
+<% include ../partials/footer %>

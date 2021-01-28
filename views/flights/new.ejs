@@ -1,0 +1,31 @@
+<% include ../partials/header %>
+    <div class="row">
+        <h1 style="text-align: center">Schedule a new Flight</h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/flights" method="POST">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="flight[origin]" placeholder="Flight Origin">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="flight[destination]" placeholder="Flight Destination">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="flight[depTime]" placeholder="Departure Time (hh:mm)">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="flight[arrTime]" placeholder="Arrival Time (hh:mm)">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="flight[duration]" placeholder="Flight Duration (hh:mm)">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="flight[price]" placeholder="₹ Price">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                </div>
+            </form>
+            <a href="/flights">Go Back</a>
+        </div>
+    </div>
+<% include ../partials/footer %>

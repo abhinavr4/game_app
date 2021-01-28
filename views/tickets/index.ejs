@@ -1,0 +1,53 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Your current bookings!</h1>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead">Notifications</p>
+            <div class="list-group">
+                <li class="list-group-item active">Connecting flights coming soon!</li>
+                <li class="list-group-item">International flights starting in June!</li>
+                <li class="list-group-item">Best prices, Premium experience.</li>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="well">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Flight Origin</th>
+                            <th>Flight Duration</th>
+                            <th>Flight Destination</th>
+                            <th>Departure Time</th>
+                            <th>Arrival Time</th>
+                        </tr>
+                    </thead>
+                    <% tickets.forEach(function(ticket){ %>  
+                        <tbody>
+                            <tr>
+                                <td><%=ticket.origin%></td>
+                                <td><%=ticket.duration%></td>
+                                <td><%=ticket.destination%></td>
+                                <td><%=ticket.depTime%></td>
+                                <td><%=ticket.arrTime%></td>
+                                <td class="text-right">
+                                    <form class="same-line" action="/tickets/<%= ticket._id %>?_method=DELETE" method="POST">
+		       			 				<button class="btn btn-danger btn-xs">Cancel</button>
+		    						</form> 
+                                </td>
+                            </tr>
+                        </tbody>                       
+                    <% }); %>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>
